@@ -1,0 +1,39 @@
+name: Aws infraestrutura DocumentDB
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v2
+    
+      - name: Configurando a AWS Credentials Action para o GitHub Actions
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+          aws-region: us-east-1
+      - name: Setup Terraform CLI
+        uses: hashicorp/setup-terraform@v2.0.2
+
+      - name: Terraform Init - Iniciando
+        run: terraform init
+
+      - name: Terraform Apply - Aplicando
+        run: |
+          export VPC_ID=$(aws ec2 describe-vpcs --filters Name=tag:Name,Values=Fiap_Pixels --query 'Vpcs[0].VpcId' --output text)
+          echo $VPC_ID
+          terraform apply -auto-approve -var "aws_access_key=${{ secrets.AWS_ACCESS_KEY }}" -var "aws_secret_key=${{ secrets.AWS_SECRET_KEY }}" -var "vpc_id=${VPC_ID}"
+
+      - name: DocumentDB Endpoint
+        id: docdb
+        run: echo "::set-output name=endpoint::$(terraform output docdb_endpoint)"
+
+      - name: DocumentDB Endpoint
+        run: echo "DocumentDB Endpoint is ${{ steps.docdb.outputs.endpoint }}"
