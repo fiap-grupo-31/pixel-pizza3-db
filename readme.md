@@ -3,8 +3,6 @@
 [![Amazon DocumentDB](https://img.shields.io/badge/Amazon%20DocumentDB-supported-brightgreen.svg)](https://aws.amazon.com/documentdb/)
 
 
-
-
 # Tech Challenge - Fase 03 (GRUPO 31) - AWS Infraestrutura DocumentDB
 
 Este repositório o terraform para criação dos seguintes itens:
