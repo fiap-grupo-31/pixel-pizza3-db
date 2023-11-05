@@ -29,7 +29,7 @@ Em resumo, a escolha do **Amazon DocumentDB** se mostrou uma decisão estratégi
 
 # DER
 
-![Alt text](Fiap-DB-3.png)
+![Alt text](Fiap-DB.png)
 
 # Embedded document
 
