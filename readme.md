@@ -3,13 +3,14 @@
 [![Amazon DocumentDB](https://img.shields.io/badge/Amazon%20DocumentDB-supported-brightgreen.svg)](https://aws.amazon.com/documentdb/)
 
 
-# Tech Challenge - Fase 03 (GRUPO 31) - AWS Infraestrutura DocumentDB
+# Tech Challenge - Fase 04 (GRUPO 31) - AWS Infraestrutura DocumentDB
 
 Este repositório o terraform para criação dos seguintes itens:
 
 * 2 subnets públicas dentro de uma VPC
 * 1 security group para liberar a porta 27017 para as subnets privadas que são utilizadas pelo eks
 * 1 cluster document db + instance 
+* 2 RDS Mysql
 
 ## Motivo pela escolha do **MongoDB / Amazon DocumentDB**
 
@@ -25,7 +26,20 @@ Além disso, a capacidade de escalar verticalmente e horizontalmente conforme a 
 
 Em resumo, a escolha do **Amazon DocumentDB** se mostrou uma decisão estratégica, proporcionando um ambiente de gerenciamento de dados confiável, escalável e altamente disponível. Isso nos permitiu focar em desenvolver e melhorar nossa aplicação, sabendo que estamos suportados por uma infraestrutura robusta e de alto desempenho.
 
-# DER
+## Motivo pela escolha do Mysql RDS
+
+O Amazon RDS proporcionam disponibilidade e durabilidade melhores para instâncias de seu banco de dados (DB) do Amazon RDS, o que as torna a solução ideal para workloads de banco de dados de produção.
+
+
+
+# DER Pagamentos
+
+![Alt text](Fiap-DB-Payments.png)
+
+# DER Produção
+![Alt text](Fiap-DB-payments.png)
+
+# DER Principal ( orders, customer )
 
 ![Alt text](Fiap-DB.png)
 

@@ -43,6 +43,13 @@ resource "aws_security_group" "pixels" {
     cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
   }
 
+  ingress {
+    from_port       = 3306
+    to_port         = 3306
+    protocol        = "tcp"
+    cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+  }
+
   tags = {
     Name = "Pixels-Db-SG"
   }
@@ -69,4 +76,53 @@ resource "aws_docdb_cluster" "pixels" {
   skip_final_snapshot = true
   
   vpc_security_group_ids = [aws_security_group.pixels.id]
+}
+
+resource "aws_db_subnet_group" "mysql" {
+  name       = "mysql-subnet-group"
+  subnet_ids = [aws_subnet.pixels.id, aws_subnet.pixelsb.id]
+}
+
+resource "aws_db_instance" "mysql_instance1" {
+  allocated_storage    = 20
+  storage_type         = "gp3"
+  engine               = "mysql"
+  engine_version       = "8.0.35"
+  instance_class       = "db.t3.small"
+  identifier           = "fiap-productiondb"
+  username             = "admin"
+  password             = "XMrGrqVfew4YSDeQ"
+  parameter_group_name = "default.mysql8.0"
+  skip_final_snapshot  = false
+
+  vpc_security_group_ids = [aws_security_group.pixels.id]
+  db_subnet_group_name   = aws_db_subnet_group.mysql.id
+
+  db_name  = "db"
+
+  tags = {
+    Name = "MyMySQLDB"
+  }
+}
+
+resource "aws_db_instance" "mysql_instance2" {
+  allocated_storage    = 20
+  storage_type         = "gp3"
+  engine               = "mysql"
+  engine_version       = "8.0.35"
+  instance_class       = "db.t3.small"
+  identifier           = "fiap-paymentdb"
+  username             = "admin"
+  password             = "XMrGrqVfew4YSDeQ"
+  parameter_group_name = "default.mysql8.0"
+  skip_final_snapshot  = false
+
+  vpc_security_group_ids = [aws_security_group.pixels.id]
+  db_subnet_group_name   = aws_db_subnet_group.mysql.id
+
+  db_name  = "db"
+
+  tags = {
+    Name = "MyMySQLDB"
+  }
 }
