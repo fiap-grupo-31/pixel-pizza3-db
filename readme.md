@@ -10,6 +10,7 @@ Este repositório o terraform para criação dos seguintes itens:
 * 2 subnets públicas dentro de uma VPC
 * 1 security group para liberar a porta 27017 para as subnets privadas que são utilizadas pelo eks
 * 1 cluster document db + instance 
+* 2 RDS Mysql
 
 ## Motivo pela escolha do **MongoDB / Amazon DocumentDB**
 
@@ -24,6 +25,12 @@ A alta disponibilidade proporcionada pelo **Amazon DocumentDB**, combinada com s
 Além disso, a capacidade de escalar verticalmente e horizontalmente conforme a demanda do aplicativo nos dá a flexibilidade de acompanhar o crescimento dos dados e do tráfego, sem comprometer a performance ou a disponibilidade.
 
 Em resumo, a escolha do **Amazon DocumentDB** se mostrou uma decisão estratégica, proporcionando um ambiente de gerenciamento de dados confiável, escalável e altamente disponível. Isso nos permitiu focar em desenvolver e melhorar nossa aplicação, sabendo que estamos suportados por uma infraestrutura robusta e de alto desempenho.
+
+## Motivo pela escolha do Mysql RDS
+
+O Amazon RDS proporcionam disponibilidade e durabilidade melhores para instâncias de seu banco de dados (DB) do Amazon RDS, o que as torna a solução ideal para workloads de banco de dados de produção.
+
+
 
 # DER Pagamentos
 
