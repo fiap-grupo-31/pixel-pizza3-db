@@ -25,7 +25,14 @@ Além disso, a capacidade de escalar verticalmente e horizontalmente conforme a 
 
 Em resumo, a escolha do **Amazon DocumentDB** se mostrou uma decisão estratégica, proporcionando um ambiente de gerenciamento de dados confiável, escalável e altamente disponível. Isso nos permitiu focar em desenvolver e melhorar nossa aplicação, sabendo que estamos suportados por uma infraestrutura robusta e de alto desempenho.
 
-# DER
+# DER Pagamentos
+
+![Alt text](Fiap-DB-Payments.png)
+
+# DER Produção
+![Alt text](Fiap-DB-payments.png)
+
+# DER Principal ( orders, customer )
 
 ![Alt text](Fiap-DB.png)
 
