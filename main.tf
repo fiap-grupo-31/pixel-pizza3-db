@@ -79,7 +79,7 @@ resource "aws_docdb_cluster" "pixels" {
 }
 
 resource "aws_db_subnet_group" "mysql" {
-  name       = "mysql-subnet-group"
+  name       = "mysql-subnet-group1"
   subnet_ids = [aws_subnet.pixels.id, aws_subnet.pixelsb.id]
 }
 
